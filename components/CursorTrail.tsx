@@ -44,7 +44,9 @@ const ImageTrail: React.FC = () => {
       {images.map((src, index) => (
         <div
           key={index}
-          ref={(el) => (imgRefs.current[index] = el)}
+          ref={(el) => {
+            imgRefs.current[index] = el;
+          }}
           className="absolute w-60 h-32 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         >
           <Image
