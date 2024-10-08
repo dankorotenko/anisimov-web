@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 const getTimeForTimezone = (timezone) => {
   const now = new Date();
   // Use Intl.DateTimeFormat to convert to specific time zone with AM/PM
-  const options = { timeZone: timezone, hour: '2-digit', minute: '2-digit', hour12: true };
+  const options = { timeZone: timezone, hour: "2-digit" as const, minute: "2-digit" as const, hour12: true };
   const formatter = new Intl.DateTimeFormat([], options);
   const timeParts = formatter.formatToParts(now);
   
