@@ -11,7 +11,6 @@ interface MagneticButtonProps {
   scale?: number;
   debug?: boolean;
   borderRadius?: string;
-  [key: string]: any;
 }
 
 const MagneticButton = ({ 
