@@ -1,0 +1,31 @@
+    
+  
+  .blue-bg{
+    background-color:blue;
+  }
+  .orange-bg{
+    background-color:orange;
+  
+  }
+  .green-bg{
+    background-color:green;
+  }
+  .red-bg{
+    background-color:red;
+  }
+  .black-bg{
+    background-color:black;
+  }
+  .footer{
+    
+    background-color:grey;
+    text-align:center;
+    font-size:20px;
+    color:white;
+    height:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+  }
+  
