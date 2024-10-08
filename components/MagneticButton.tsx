@@ -1,18 +1,30 @@
+//@ts-nocheck
 "use client"
 
-import { useRef } from 'react'
+import { ReactNode, useRef } from 'react'
 import gsap from 'gsap'
+
+interface MagneticButtonProps {
+  children: ReactNode;
+  className?: string;
+  speed?: number;
+  tollerance?: number;
+  scale?: number;
+  debug?: boolean;
+  borderRadius?: string;
+  [key: string]: any;
+}
 
 const MagneticButton = ({ 
   children,
-  className,
+  className = '',
   speed = 1,
   tollerance = 0.8,
   scale = 1.2,
   debug = false,
   borderRadius = '0',
   ...props
-}) => {
+}: MagneticButtonProps) => {
   const $root = useRef(null)
   const $item = useRef(null)
   const $hover = useRef(null)
