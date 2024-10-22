@@ -7,10 +7,16 @@ import Image from "next/image";
 import camera from "@/images/camera.png";
 import ScrollContext from "@/components/ScrollContext";
 import MagneticButton from "@/components/MagneticButton";
-
+// import videoMain from '@/videos/korzh.mp4'
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  const timeline = gsap.timeline({
+    repeat: -1,
+    repeatDelay: 1,
+    yoyo: true,
+  });
+
   useGSAP(() => {
     gsap.to("#reveal-section-1", {
       yPercent: -100,
@@ -25,11 +31,71 @@ export default function Home() {
         //markers:true
       },
     });
+    timeline
+      .to("#video", {
+        scale: 1,
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "bottom 30%",
+          end: "bottom -30%",
+          scrub: true,
+          // markers: true,
+        },
+      })
+      .to("#text-right", {
+        scale: 1,
+        translateX: 0,
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "bottom 30%",
+          end: "bottom -30%",
+          scrub: true,
+        },
+      })
+      .to("#text-left", {
+        scale: 1,
+        translateX: 0,
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "bottom 30%",
+          end: "bottom -30%",
+          scrub: true,
+        },
+      });
+
+    const uls = gsap.utils.toArray('.wrapper');
+
+    uls.forEach((ul, index) => {
+      const [x, xEnd] = index % 2 ? ["-100%", '-20%'] : ["-100%", 0];
+      gsap.fromTo(
+        //@ts-expect-error because
+        ul,
+        { x },
+        {
+          x: xEnd,
+          scrollTrigger: {
+            trigger: ul,
+            scrub: 0.25,
+            markers: true,
+            start: "bottom, bottom",
+            end: "top 50%",
+          },
+        }
+      );
+    });
+
+    // gsap.set(".panel", { zIndex: (i, target, targets) => targets.length - i });
   }, []);
   return (
     <ScrollContext>
       <main className="w-full h-full overflow-hidden">
-        <section id="hero" className="z-[1] relative w-full mb-[100svh] bg-base">
+        <section
+          id="hero"
+          className="z-[1] relative w-full mb-[100svh] bg-base"
+        >
           <div className="relative z-[1] h-svh grid grid-cols-4 md:grid-cols-12 gap-x-2 md:gap-x-4 grid-rows-[1fr_auto] w-full px-4 md:px-8 mx-auto">
             <CursorTrail />
 
@@ -107,19 +173,98 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="reveal-section-1" className="fixed top-0 -z-[1] h-svh w-full grid place-items-center">
-          <div>
-            <h2 id="text" className="font-clash text-5xl font-bold text-white ">
-              Hello, world
-            </h2>
+        <section
+          id="reveal-section-1"
+          className="fixed top-0 -z-[1] h-svh w-full grid place-items-center"
+        >
+          <div className="flex w-full items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 justify-center z-[2]">
+            <span
+              id="text-left"
+              className="font-clash text-primary font-bold text-8xl leading-tight scale-[0.4] px-2 -translate-x-[100%]"
+            >
+              PLAY
+            </span>
+            <span
+              id="text-right"
+              className="font-clash text-primary font-bold text-8xl leading-tight scale-[0.4] px-2 translate-x-[100%]"
+            >
+              REEL
+            </span>
           </div>
+          <video
+            id="video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-svh rounded-md scale-[0.43]"
+          >
+            <source src="/videos/korzh.mp4" />
+          </video>
         </section>
 
-        <section className="h-svh w-full grid place-items-center">
+        <section className="w-full py-60">
           <div>
-            <h2 className="font-clash text-5xl font-bold text-white ">
-              Next Section
-            </h2>
+            <h2 className="font-clash text-8xl font-bold text-center uppercase text-primary">Projects <br /> Showcase</h2>
+            <div>
+              <ul className="wrapper flex gap-4 py-4 ">
+                <li
+                  key="images1-1"
+                  className="block w-[600px] h-[400px] bg-gray-200"
+                ></li>
+                <li
+                  key="images1-2"
+                  className="block w-[600px] h-[400px] bg-gray-200"
+                ></li>
+                <li
+                  key="images1-3"
+                  className="block w-[600px] h-[400px] bg-gray-200"
+                ></li>
+              </ul>
+
+              <ul className="wrapper flex gap-4 py-4">
+                <li
+                  key="images2-1"
+                  className="block w-[600px] h-[400px] bg-gray-200"
+                ></li>
+                <li
+                  key="images2-2"
+                  className="block w-[600px] h-[400px] bg-gray-200"
+                ></li>
+                <li
+                  key="images2-3"
+                  className="block w-[600px] h-[400px] bg-gray-200"
+                ></li>
+              </ul>
+              <ul className="wrapper flex gap-4 py-4">
+                <li
+                  key="images3-1"
+                  className="block w-[600px] h-[400px] bg-gray-200"
+                ></li>
+                <li
+                  key="images3-2"
+                  className="block w-[600px] h-[400px] bg-gray-200"
+                ></li>
+                <li
+                  key="images3-3"
+                  className="block w-[600px] h-[400px] bg-gray-200"
+                ></li>
+              </ul>
+              <ul className="wrapper flex gap-4 py-4">
+                <li
+                  key="images4-1"
+                  className="block w-[600px] h-[400px] bg-gray-200"
+                ></li>
+                <li
+                  key="images4-2"
+                  className="block w-[600px] h-[400px] bg-gray-200"
+                ></li>
+                <li
+                  key="images4-3"
+                  className="block w-[600px] h-[400px] bg-gray-200"
+                ></li>
+              </ul>
+            </div>
           </div>
         </section>
       </main>

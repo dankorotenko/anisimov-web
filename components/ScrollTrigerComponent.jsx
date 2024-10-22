@@ -31,9 +31,8 @@ const ScrollTriggerComponent = () => {
         }
       );
     });
-      
-      
-      gsap.set(".panel", {zIndex: (i, target, targets) => targets.length - i});
+
+    gsap.set(".panel", { zIndex: (i, target, targets) => targets.length - i });
   }, []);
   return (
     <div className="demo-wrapper overflow-hidden">
@@ -44,86 +43,6 @@ const ScrollTriggerComponent = () => {
         </div>
       </header>
 
-      {/* <section className="demo-text">
-        <div className="font-clash wrapper text font-extrabold text-[clamp(8rem,15vw,16rem)] leading-none">
-          anisimovanisimovanisimov
-        </div>
-      </section> */}
-      <section ref={scrollRef}>
-        <ul className="wrapper flex gap-4 py-4">
-          <li
-            key="images1-1"
-            className="block w-[600px] h-[400px] bg-gray-200"
-          ></li>
-          <li
-            key="images1-2"
-            className="block w-[600px] h-[400px] bg-gray-200"
-          ></li>
-          <li
-            key="images1-3"
-            className="block w-[600px] h-[400px] bg-gray-200"
-          ></li>
-          <li
-            key="images1-4"
-            className="block w-[600px] h-[400px] bg-gray-200"
-          ></li>
-        </ul>
-
-        <ul className="wrapper flex gap-4 py-4">
-          <li
-            key="images2-1"
-            className="block w-[600px] h-[400px] bg-gray-200"
-          ></li>
-          <li
-            key="images2-2"
-            className="block w-[600px] h-[400px] bg-gray-200"
-          ></li>
-          <li
-            key="images2-3"
-            className="block w-[600px] h-[400px] bg-gray-200"
-          ></li>
-          <li
-            key="images2-4"
-            className="block w-[600px] h-[400px] bg-gray-200"
-          ></li>
-        </ul>
-        <ul className="wrapper flex gap-4 py-4">
-          <li
-            key="images3-1"
-            className="block w-[600px] h-[400px] bg-gray-200"
-          ></li>
-          <li
-            key="images3-2"
-            className="block w-[600px] h-[400px] bg-gray-200"
-          ></li>
-          <li
-            key="images3-3"
-            className="block w-[600px] h-[400px] bg-gray-200"
-          ></li>
-          <li
-            key="images3-4"
-            className="block w-[600px] h-[400px] bg-gray-200"
-          ></li>
-        </ul>
-        <ul className="wrapper flex gap-4 py-4">
-          <li
-            key="images4-1"
-            className="block w-[600px] h-[400px] bg-gray-200"
-          ></li>
-          <li
-            key="images4-2"
-            className="block w-[600px] h-[400px] bg-gray-200"
-          ></li>
-          <li
-            key="images4-3"
-            className="block w-[600px] h-[400px] bg-gray-200"
-          ></li>
-          <li
-            key="images4-4"
-            className="block w-[600px] h-[400px] bg-gray-200"
-          ></li>
-        </ul>
-      </section>
     </div>
   );
 };

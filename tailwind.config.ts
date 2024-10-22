@@ -12,7 +12,7 @@ const config: Config = {
       colors: {
         base: "#151515",
         "base-2": "#1D1D1D",
-        primary: "#9571BA",
+        primary: "#fc2846",
         text: "#f2e8de",
       },
       fontFamily: {
