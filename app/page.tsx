@@ -5,9 +5,17 @@ import { gsap } from "gsap";
 import CursorTrail from "@/components/CursorTrail";
 import Image from "next/image";
 import camera from "@/images/camera.png";
+import phone from "@/images/phone.png";
 import ScrollContext from "@/components/ScrollContext";
 import MagneticButton from "@/components/MagneticButton";
-// import videoMain from '@/videos/korzh.mp4'
+import Footer from "@/components/Footer";
+import image1 from "@/images/image1.webp";
+import image2 from "@/images/image2.webp";
+import image3 from "@/images/image3.webp";
+import image4 from "@/images/image4.webp";
+import image5 from "@/images/image5.webp";
+import Card from "@/components/Card";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
@@ -18,6 +26,25 @@ export default function Home() {
   });
 
   useGSAP(() => {
+    timeline.fromTo(
+      "#camera-card",
+      {
+        y: -100,
+        rotate: "10deg",
+      },
+      {
+        y: 0,
+        rotate: "-10deg",
+        x: 40,
+        scrollTrigger: {
+          trigger: "#camera-section",
+          start: "top 80%",
+          end: "bottom 20%",
+          scrub: true,
+          // markers: true,
+        },
+      }
+    );
     gsap.to("#reveal-section-1", {
       yPercent: -100,
       ease: "none",
@@ -34,6 +61,7 @@ export default function Home() {
     timeline
       .to("#video", {
         scale: 1,
+        borderRadius: 0,
         ease: "power1.inOut",
         scrollTrigger: {
           trigger: "#hero",
@@ -66,10 +94,10 @@ export default function Home() {
         },
       });
 
-    const uls = gsap.utils.toArray('.wrapper');
+    const uls = gsap.utils.toArray(".wrapper");
 
     uls.forEach((ul, index) => {
-      const [x, xEnd] = index % 2 ? ["-100%", '-20%'] : ["-100%", 0];
+      const [x, xEnd] = index % 2 ? ["-100%", "10%"] : ["-100%", "-10%"];
       gsap.fromTo(
         //@ts-expect-error because
         ul,
@@ -79,7 +107,7 @@ export default function Home() {
           scrollTrigger: {
             trigger: ul,
             scrub: 0.25,
-            markers: true,
+            // markers: true,
             start: "bottom, bottom",
             end: "top 50%",
           },
@@ -87,7 +115,18 @@ export default function Home() {
       );
     });
 
-    // gsap.set(".panel", { zIndex: (i, target, targets) => targets.length - i });
+    timeline.to("#phone-card", {
+      rotate: "-10deg",
+      y: -80,
+      x: 60,
+      scrollTrigger: {
+        trigger: "#contact",
+        start: "top 40%",
+        end: "bottom 60%",
+        scrub: true,
+        // markers: true,
+      },
+    });
   }, []);
   return (
     <ScrollContext>
@@ -141,9 +180,26 @@ export default function Home() {
               </svg>
             </figure>
           </div>
-          <div className="relative z-[1] grid grid-cols-4 md:grid-cols-12 grid-x-2 md:gap-x-4 grid-rows-[1fr_auto] w-[calc(100% - 16px)] px-2 md:px-4 mx-2 md:mx-4 mt-7 rounded-lg bg-base-2">
+          <div
+            id="camera-section"
+            className="relative z-[1] grid grid-cols-4 md:grid-cols-12 grid-x-2 md:gap-x-4 grid-rows-[1fr_auto] w-[calc(100% - 16px)] px-2 md:px-4 mx-2 md:mx-4 mt-7 rounded-lg bg-base-2"
+          >
             <div className="col-[2/4] self-center h-fit mt-16 md:col-[3/6] md:mt-0">
-              <Image src={camera} alt="camera" className="size-full" />
+              <Card id="camera-card">
+                <Image
+                  src={camera}
+                  alt="camera"
+                  className="size-full rounded-md"
+                />
+                <figcaption className="mt-2">
+                  <a
+                    href="/"
+                    className="font-clash text-lg font-bold text-text"
+                  >
+                    @anisimov.photo
+                  </a>
+                </figcaption>
+              </Card>
             </div>
             <div className="col-[2/5] pt-14 pb-16 md:col-[8/11] md:py-32">
               <p className="font-clash text-white font-semibold text-xl leading-tight md:text-2xl">
@@ -197,7 +253,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            className="w-full h-svh rounded-md scale-[0.43]"
+            className="w-full h-svh rounded-lg scale-[0.43] object-contain"
           >
             <source src="/videos/korzh.mp4" />
           </video>
@@ -205,32 +261,48 @@ export default function Home() {
 
         <section className="w-full py-60">
           <div>
-            <h2 className="font-clash text-8xl font-bold text-center uppercase text-primary">Projects <br /> Showcase</h2>
-            <div>
-              <ul className="wrapper flex gap-4 py-4 ">
-                <li
-                  key="images1-1"
-                  className="block w-[600px] h-[400px] bg-gray-200"
-                ></li>
-                <li
-                  key="images1-2"
-                  className="block w-[600px] h-[400px] bg-gray-200"
-                ></li>
-                <li
-                  key="images1-3"
-                  className="block w-[600px] h-[400px] bg-gray-200"
-                ></li>
-              </ul>
-
+            <h2 className="font-clash text-8xl font-bold text-center uppercase text-primary">
+              Project <br /> Showcase
+            </h2>
+            <div className="mt-20">
               <ul className="wrapper flex gap-4 py-4">
-                <li
-                  key="images2-1"
-                  className="block w-[600px] h-[400px] bg-gray-200"
-                ></li>
-                <li
-                  key="images2-2"
-                  className="block w-[600px] h-[400px] bg-gray-200"
-                ></li>
+                <Image
+                  src={image1}
+                  alt="image1"
+                  width={image1.width}
+                  height={image1.height}
+                  className="w-[600px] h-[400px] object-cover"
+                />
+                <Image
+                  src={image2}
+                  width={image2.width}
+                  height={image2.height}
+                  alt="image2"
+                  className="w-[600px] h-[400px] object-cover"
+                />
+                <Image
+                  src={image3}
+                  width={image3.width}
+                  height={image3.height}
+                  alt="image3"
+                  className="w-[600px] h-[400px] object-cover"
+                />
+              </ul>
+              <ul className="wrapper flex gap-4 py-4">
+                <Image
+                  src={image4}
+                  width={image4.width}
+                  height={image4.height}
+                  alt="image4"
+                  className="w-[600px] h-[400px] object-cover"
+                />
+                <Image
+                  src={image5}
+                  width={image5.width}
+                  height={image5.height}
+                  alt="image5"
+                  className="w-[600px] h-[400px] object-cover"
+                />
                 <li
                   key="images2-3"
                   className="block w-[600px] h-[400px] bg-gray-200"
@@ -250,23 +322,53 @@ export default function Home() {
                   className="block w-[600px] h-[400px] bg-gray-200"
                 ></li>
               </ul>
-              <ul className="wrapper flex gap-4 py-4">
-                <li
-                  key="images4-1"
-                  className="block w-[600px] h-[400px] bg-gray-200"
-                ></li>
-                <li
-                  key="images4-2"
-                  className="block w-[600px] h-[400px] bg-gray-200"
-                ></li>
-                <li
-                  key="images4-3"
-                  className="block w-[600px] h-[400px] bg-gray-200"
-                ></li>
-              </ul>
             </div>
           </div>
         </section>
+        <section id="contact" className="w-full py-32">
+          <h2 className="font-clash text-8xl font-bold text-center uppercase text-primary leading-[0.8]">
+            Let&apos;s do <br /> something <br /> awesome <br />
+            together!
+          </h2>
+          <div className="relative z-[1] grid grid-cols-4 md:grid-cols-12 grid-x-2 md:gap-x-4 grid-rows-[1fr_auto] w-[calc(100% - 16px)] px-2 md:px-4 mx-2 md:mx-4 mt-7">
+            <div className="col-[2/4] self-center h-fit mt-16 md:col-[3/6] md:mt-0">
+              <Card id="phone-card">
+                <Image
+                  src={phone}
+                  alt="phone"
+                  className="rounded-md size-full"
+                />
+                <figcaption className="mt-2">
+                  <a
+                    href="/"
+                    className="font-clash text-lg font-bold text-text"
+                  >
+                    @anisimov.photo
+                  </a>
+                </figcaption>
+              </Card>
+            </div>
+            <div className="col-[2/5] py-2 md:col-[8/11] md:py-4">
+              <p className="font-clash text-white font-semibold text-xl leading-tight md:text-2xl">
+                We&apos;d be excited for a collaboration opportunity in your next
+                venture.
+              </p>
+              <p className="font-clash text-white font-semibold text-xl leading-tight md:text-2xl">
+                Hit us up and let&apos;s schedule a call.
+              </p>
+              <MagneticButton
+                className="font-clash mt-6 border-2 border-primary rounded-[50%] text-white px-8 py-4 font-semibold text-lg"
+                scale={1.5}
+                tollerance={0.8}
+                speed={0.5}
+                borderRadius="50%"
+              >
+                contact me
+              </MagneticButton>
+            </div>
+          </div>
+        </section>
+        <Footer />
       </main>
     </ScrollContext>
   );

@@ -15,7 +15,7 @@ const Header = () => {
         <button className="cursor-pointer col-start-3 col-end-5 md:col-start-5 md:col-end-9 text-right md:text-center">
           <span className="font-clash font-bold text-lg">menu</span>
         </button>
-        <CurrentTime />
+          <CurrentTime className="hidden md:block col-start-9 col-end-13 font-clash uppercase font-bold text-text font-base text-right"/>
       </div>
     </header>
   );

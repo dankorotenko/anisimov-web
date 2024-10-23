@@ -17,7 +17,7 @@ const getTimeForTimezone = (timezone) => {
   return { hours, minutes, period };
 };
 
-const CurrentTime = () => {
+const CurrentTime = ({className}: {className?: string}) => {
   const [time, setTime] = useState({ hours: '00', minutes: '00', period: 'AM' });
   const [location, setLocation] = useState(null); // Store user location info
   const colonRef = useRef(null); // Reference for the colon element
@@ -78,7 +78,7 @@ const CurrentTime = () => {
   }
 
   return (
-    <div className="hidden md:block col-start-9 col-end-13 font-clash uppercase font-bold text-text font-base text-right">
+    <div className={className}>
       {location.city.toUpperCase()}, {time.hours}<span ref={colonRef}>:</span>{time.minutes} {time.period}
     </div>
   );
