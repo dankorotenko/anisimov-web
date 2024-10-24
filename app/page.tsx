@@ -1,8 +1,9 @@
 "use client";
+import { useState, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import CursorTrail from "@/components/CursorTrail";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import camera from "@/images/camera.png";
 import phone from "@/images/phone.png";
@@ -14,16 +15,41 @@ import image2 from "@/images/image2.webp";
 import image3 from "@/images/image3.webp";
 import image4 from "@/images/image4.webp";
 import image5 from "@/images/image5.webp";
+import image6 from "@/images/image6.webp";
+import image7 from "@/images/image7.webp";
+import image8 from "@/images/image8.webp";
+import image9 from "@/images/image9.webp";
 import Card from "@/components/Card";
+import TickerTape from "@/components/TicketTape";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  const videoRef = useRef(null);
+
   const timeline = gsap.timeline({
     repeat: -1,
     repeatDelay: 1,
     yoyo: true,
   });
+
+  const [isOpenVideoModal, setIsOpenVideoModal] = useState(false);
+
+  const openModalAndPlayVideo = () => {
+    setIsOpenVideoModal(true);
+    if (videoRef.current && typeof videoRef.current.play === "function") {
+      videoRef.current.play(); // Play the video
+    } else {
+      console.error(
+        "Video element is not accessible or 'play' is not a function"
+      );
+    }
+  };
+
+  const closeModalAndStopVideo = () => {
+    setIsOpenVideoModal(false);
+    videoRef.current.pause();
+  };
 
   useGSAP(() => {
     timeline.fromTo(
@@ -130,13 +156,13 @@ export default function Home() {
   }, []);
   return (
     <ScrollContext>
-      <main className="w-full h-full overflow-hidden">
+      <main className="relative w-full h-full overflow-hidden">
         <section
           id="hero"
-          className="z-[1] relative w-full mb-[100svh] bg-base"
+          className="z-[2] relative w-full mb-[100svh] bg-base"
         >
-          <div className="relative z-[1] h-svh grid grid-cols-4 md:grid-cols-12 gap-x-2 md:gap-x-4 grid-rows-[1fr_auto] w-full px-4 md:px-8 mx-auto">
-            <CursorTrail />
+          <div className="relative z-[2] h-svh grid grid-cols-4 md:grid-cols-12 gap-x-2 md:gap-x-4 grid-rows-[1fr_auto] w-full px-4 md:px-8 mx-auto">
+            {/* <CursorTrail /> */}
 
             <div className="grid w-full pt-12 md:pt-20 col-[1/5] md:col-[1/13] md:row-[1] md:relative gap-y-12 grid-cols-4 md:grid-cols-12 gap-x-2 content-center">
               <h1 className="font-clash col-start-2 col-end-4 uppercase font-bold font-base text-center md:text-xl text-white md:col-start-6 md:col-end-8 md:row-[1] self-center">
@@ -226,14 +252,17 @@ export default function Home() {
                 the studio
               </MagneticButton>
             </div>
+            <div className="col-[1/5] md:col-[1/13] grid">
+              <TickerTape />
+            </div>
           </div>
         </section>
 
         <section
           id="reveal-section-1"
-          className="fixed top-0 -z-[1] h-svh w-full grid place-items-center"
+          className="fixed top-0 z-[1] h-svh w-full grid place-items-center"
         >
-          <div className="flex w-full items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 justify-center z-[2]">
+          <div className="flex w-full items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 justify-center z-[2] pointer-events-none">
             <span
               id="text-left"
               className="font-clash text-primary font-bold text-8xl leading-tight scale-[0.4] px-2 -translate-x-[100%]"
@@ -253,16 +282,17 @@ export default function Home() {
             loop
             muted
             playsInline
-            className="w-full h-svh rounded-lg scale-[0.43] object-contain"
+            className="w-full h-svh rounded-lg scale-[0.43] object-contain cursor-pointer"
+            onClick={openModalAndPlayVideo}
           >
             <source src="/videos/korzh.mp4" />
           </video>
         </section>
 
-        <section className="w-full py-60">
+        <section className="w-full pt-60 pb-10">
           <div>
             <h2 className="font-clash text-8xl font-bold text-center uppercase text-primary">
-              Project <br /> Showcase
+              Photo <br /> Showcase
             </h2>
             <div className="mt-20">
               <ul className="wrapper flex gap-4 py-4">
@@ -290,10 +320,33 @@ export default function Home() {
               </ul>
               <ul className="wrapper flex gap-4 py-4">
                 <Image
+                  src={image6}
+                  width={image6.width}
+                  height={image6.height}
+                  alt="image6"
+                  className="w-[600px] h-[400px] object-cover"
+                />
+                <Image
+                  src={image7}
+                  width={image7.width}
+                  height={image7.height}
+                  alt="image7"
+                  className="w-[600px] h-[400px] object-cover"
+                />
+                <Image
                   src={image4}
                   width={image4.width}
                   height={image4.height}
                   alt="image4"
+                  className="w-[600px] h-[400px] object-cover"
+                />
+              </ul>
+              <ul className="wrapper flex gap-4 py-4">
+                <Image
+                  src={image8}
+                  width={image8.width}
+                  height={image8.height}
+                  alt="image8"
                   className="w-[600px] h-[400px] object-cover"
                 />
                 <Image
@@ -303,28 +356,51 @@ export default function Home() {
                   alt="image5"
                   className="w-[600px] h-[400px] object-cover"
                 />
-                <li
-                  key="images2-3"
-                  className="block w-[600px] h-[400px] bg-gray-200"
-                ></li>
+                <Image
+                  src={image9}
+                  width={image9.width}
+                  height={image9.height}
+                  alt="image9"
+                  className="w-[600px] h-[400px] object-cover"
+                />
               </ul>
-              <ul className="wrapper flex gap-4 py-4">
-                <li
-                  key="images3-1"
-                  className="block w-[600px] h-[400px] bg-gray-200"
-                ></li>
-                <li
-                  key="images3-2"
-                  className="block w-[600px] h-[400px] bg-gray-200"
-                ></li>
-                <li
-                  key="images3-3"
-                  className="block w-[600px] h-[400px] bg-gray-200"
-                ></li>
-              </ul>
+            </div>
+            <div className="w-full grid place-items-center mt-10">
+              <MagneticButton
+                className="font-clash mt-6 border-2 border-primary rounded-[50%] text-white px-8 py-4 font-semibold text-lg"
+                scale={1.5}
+                tollerance={0.8}
+                speed={0.5}
+                borderRadius="50%"
+              >
+                <a href="/gallery">all photos</a>
+              </MagneticButton>
             </div>
           </div>
         </section>
+        <section className="w-full pt-60 pb-10">
+          <h2 className="w-full text-8xl font-clash font-bold text-center uppercase text-primary leading-[0.8] text">
+            Video <br /> Showcase
+          </h2>
+          <div className="px-4 mx-auto mt-10 flex flex-col gap-4 md:grid md:grid-cols-12 md:gap-x-8 md:gap-y-32">
+            <div className="bg-blue-500 aspect-[4/3] rounded-md md:col-[1/7] md:row-[1] md:aspect-video md:translate-y-1/4 md:-translate-x-[55%]"></div>
+            <div className="bg-green-500 aspect-[4/3] rounded-md md:col-[4/10] md:row-[1] md:aspect-video"></div>
+            <div className="bg-purple-500 aspect-[4/3] rounded-md md:col-[7/13] md:row-[1] md:aspect-video md:-translate-y-3/4 md:translate-x-[60%]"></div>
+            <div className="bg-yellow-500 aspect-[4/3] rounded-md md:col-[7/13] md:row-[2] md:aspect-video md:-translate-y-3/4 md:translate-x-[60%]"></div>
+          </div>
+          <div className="w-full grid place-items-center mt-10 md:-mt-80">
+            <MagneticButton
+              className="font-clash mt-6 border-2 border-primary rounded-[50%] text-white px-8 py-4 font-semibold text-lg"
+              scale={1.5}
+              tollerance={0.8}
+              speed={0.5}
+              borderRadius="50%"
+            >
+              <a href="/gallery">all videos</a>
+            </MagneticButton>
+          </div>
+        </section>
+
         <section id="contact" className="w-full py-32">
           <h2 className="font-clash text-8xl font-bold text-center uppercase text-primary leading-[0.8]">
             Let&apos;s do <br /> something <br /> awesome <br />
@@ -350,8 +426,8 @@ export default function Home() {
             </div>
             <div className="col-[2/5] py-2 md:col-[8/11] md:py-4">
               <p className="font-clash text-white font-semibold text-xl leading-tight md:text-2xl">
-                We&apos;d be excited for a collaboration opportunity in your next
-                venture.
+                We&apos;d be excited for a collaboration opportunity in your
+                next venture.
               </p>
               <p className="font-clash text-white font-semibold text-xl leading-tight md:text-2xl">
                 Hit us up and let&apos;s schedule a call.
@@ -369,6 +445,34 @@ export default function Home() {
           </div>
         </section>
         <Footer />
+
+        <motion.div
+          initial={{ y: "100%" }}
+          animate={isOpenVideoModal ? "opened" : "closed"}
+          variants={{
+            opened: { y: 0, transition: { duration: 0.5 } },
+            closed: { y: "100%", transition: { duration: 0.5 } },
+          }}
+          className="z-[100] fixed top-0 left-0 bg-base-2 w-full h-svh grid place-items-center"
+        >
+          <figure className="w-3/4 relative grid place-items-center">
+            <video
+              ref={videoRef}
+              id="video"
+              controls
+              playsInline
+              className="w-full h-auto rounded-lg object-contain cursor-pointer"
+            >
+              <source src="/videos/korzh.mp4" />
+            </video>
+            <button
+              className="font-clash font-bold size-10 rounded-lg bg-base p-2 absolute right-2 top-2"
+              onClick={closeModalAndStopVideo}
+            >
+              X
+            </button>
+          </figure>
+        </motion.div>
       </main>
     </ScrollContext>
   );

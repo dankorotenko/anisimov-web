@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        'responsive-8xl': 'clamp(2rem, 5vw, 6rem)',
+      },
       colors: {
         base: "#151515",
         "base-2": "#1D1D1D",
