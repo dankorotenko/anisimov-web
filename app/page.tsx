@@ -288,7 +288,28 @@ export default function Home() {
             <source src="/videos/korzh.mp4" />
           </video>
         </section>
-
+        <section className="w-full pt-60 pb-10">
+          <h2 className="w-full text-8xl font-clash font-bold text-center uppercase text-primary leading-[0.8] text">
+            Video <br /> Showcase
+          </h2>
+          <div className="px-4 mx-auto mt-10 flex flex-col gap-4 md:grid md:grid-cols-12 md:gap-x-8 md:gap-y-32">
+            <div className="bg-blue-500 aspect-[4/3] rounded-md md:col-[1/7] md:row-[1] md:aspect-video md:translate-y-1/4 md:-translate-x-[55%]"></div>
+            <div className="bg-green-500 aspect-[4/3] rounded-md md:col-[4/10] md:row-[1] md:aspect-video"></div>
+            <div className="bg-purple-500 aspect-[4/3] rounded-md md:col-[7/13] md:row-[1] md:aspect-video md:-translate-y-3/4 md:translate-x-[60%]"></div>
+            <div className="bg-yellow-500 aspect-[4/3] rounded-md md:col-[7/13] md:row-[2] md:aspect-video md:-translate-y-3/4 md:translate-x-[60%]"></div>
+          </div>
+          <div className="w-full grid place-items-center mt-10 md:-mt-80">
+            <MagneticButton
+              className="font-clash mt-6 border-2 border-primary rounded-[50%] text-white px-8 py-4 font-semibold text-lg"
+              scale={1.5}
+              tollerance={0.8}
+              speed={0.5}
+              borderRadius="50%"
+            >
+              <a href="/gallery">all videos</a>
+            </MagneticButton>
+          </div>
+        </section>
         <section className="w-full pt-60 pb-10">
           <div>
             <h2 className="font-clash text-8xl font-bold text-center uppercase text-primary">
@@ -376,28 +397,6 @@ export default function Home() {
                 <a href="/gallery">all photos</a>
               </MagneticButton>
             </div>
-          </div>
-        </section>
-        <section className="w-full pt-60 pb-10">
-          <h2 className="w-full text-8xl font-clash font-bold text-center uppercase text-primary leading-[0.8] text">
-            Video <br /> Showcase
-          </h2>
-          <div className="px-4 mx-auto mt-10 flex flex-col gap-4 md:grid md:grid-cols-12 md:gap-x-8 md:gap-y-32">
-            <div className="bg-blue-500 aspect-[4/3] rounded-md md:col-[1/7] md:row-[1] md:aspect-video md:translate-y-1/4 md:-translate-x-[55%]"></div>
-            <div className="bg-green-500 aspect-[4/3] rounded-md md:col-[4/10] md:row-[1] md:aspect-video"></div>
-            <div className="bg-purple-500 aspect-[4/3] rounded-md md:col-[7/13] md:row-[1] md:aspect-video md:-translate-y-3/4 md:translate-x-[60%]"></div>
-            <div className="bg-yellow-500 aspect-[4/3] rounded-md md:col-[7/13] md:row-[2] md:aspect-video md:-translate-y-3/4 md:translate-x-[60%]"></div>
-          </div>
-          <div className="w-full grid place-items-center mt-10 md:-mt-80">
-            <MagneticButton
-              className="font-clash mt-6 border-2 border-primary rounded-[50%] text-white px-8 py-4 font-semibold text-lg"
-              scale={1.5}
-              tollerance={0.8}
-              speed={0.5}
-              borderRadius="50%"
-            >
-              <a href="/gallery">all videos</a>
-            </MagneticButton>
           </div>
         </section>
 
