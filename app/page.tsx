@@ -265,13 +265,13 @@ export default function Home() {
           <div className="flex w-full items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 justify-center z-[2] pointer-events-none">
             <span
               id="text-left"
-              className="font-clash text-primary font-bold text-8xl leading-tight scale-[0.4] px-2 -translate-x-[100%]"
+              className="font-clash text-primary font-bold text-4xl md:text-8xl leading-tight scale-[0.4] px-2 -translate-x-[40%] lg:-translate-x-[100%]"
             >
               PLAY
             </span>
             <span
               id="text-right"
-              className="font-clash text-primary font-bold text-8xl leading-tight scale-[0.4] px-2 translate-x-[100%]"
+              className="font-clash text-primary font-bold text-4xl md:text-8xl leading-tight scale-[0.4] px-2 translate-x-[40%] lg:translate-x-[100%]"
             >
               REEL
             </span>
@@ -282,14 +282,14 @@ export default function Home() {
             loop
             muted
             playsInline
-            className="w-full h-svh rounded-lg scale-[0.43] object-contain cursor-pointer"
+            className="object-cover w-full h-svh rounded-lg scale-[0.43] md:object-contain cursor-pointer"
             onClick={openModalAndPlayVideo}
           >
             <source src="/videos/korzh.mp4" />
           </video>
         </section>
         <section className="w-full pt-60 pb-10">
-          <h2 className="w-full text-8xl font-clash font-bold text-center uppercase text-primary leading-[0.8] text">
+          <h2 className="w-full text-3xl md:text-6xl lg:text-8xl font-clash font-bold text-center uppercase text-primary leading-[0.8] text">
             Video <br /> Showcase
           </h2>
           <div className="px-4 mx-auto mt-10 flex flex-col gap-4 md:grid md:grid-cols-12 md:gap-x-8 md:gap-y-32">
@@ -312,7 +312,7 @@ export default function Home() {
         </section>
         <section className="w-full pt-60 pb-10">
           <div>
-            <h2 className="font-clash text-8xl font-bold text-center uppercase text-primary">
+            <h2 className="font-clash text-3xl md:text-6xl lg:text-8xl font-bold text-center uppercase text-primary">
               Photo <br /> Showcase
             </h2>
             <div className="mt-20">
@@ -323,6 +323,8 @@ export default function Home() {
                   width={image1.width}
                   height={image1.height}
                   className="w-[600px] h-[400px] object-cover"
+                  quality={50}
+                  placeholder="blur"
                 />
                 <Image
                   src={image2}
@@ -330,6 +332,8 @@ export default function Home() {
                   height={image2.height}
                   alt="image2"
                   className="w-[600px] h-[400px] object-cover"
+                  quality={50}
+                  placeholder="blur"
                 />
                 <Image
                   src={image3}
@@ -337,6 +341,8 @@ export default function Home() {
                   height={image3.height}
                   alt="image3"
                   className="w-[600px] h-[400px] object-cover"
+                  quality={50}
+                  placeholder="blur"
                 />
               </ul>
               <ul className="wrapper flex gap-4 py-4">
@@ -346,6 +352,8 @@ export default function Home() {
                   height={image6.height}
                   alt="image6"
                   className="w-[600px] h-[400px] object-cover"
+                  quality={50}
+                  placeholder="blur"
                 />
                 <Image
                   src={image7}
@@ -353,6 +361,8 @@ export default function Home() {
                   height={image7.height}
                   alt="image7"
                   className="w-[600px] h-[400px] object-cover"
+                  quality={50}
+                  placeholder="blur"
                 />
                 <Image
                   src={image4}
@@ -360,6 +370,8 @@ export default function Home() {
                   height={image4.height}
                   alt="image4"
                   className="w-[600px] h-[400px] object-cover"
+                  quality={50}
+                  placeholder="blur"
                 />
               </ul>
               <ul className="wrapper flex gap-4 py-4">
@@ -369,6 +381,8 @@ export default function Home() {
                   height={image8.height}
                   alt="image8"
                   className="w-[600px] h-[400px] object-cover"
+                  quality={50}
+                  placeholder="blur"
                 />
                 <Image
                   src={image5}
@@ -376,6 +390,8 @@ export default function Home() {
                   height={image5.height}
                   alt="image5"
                   className="w-[600px] h-[400px] object-cover"
+                  quality={50}
+                  placeholder="blur"
                 />
                 <Image
                   src={image9}
@@ -383,6 +399,8 @@ export default function Home() {
                   height={image9.height}
                   alt="image9"
                   className="w-[600px] h-[400px] object-cover"
+                  quality={50}
+                  placeholder="blur"
                 />
               </ul>
             </div>
@@ -401,7 +419,7 @@ export default function Home() {
         </section>
 
         <section id="contact" className="w-full py-32">
-          <h2 className="font-clash text-8xl font-bold text-center uppercase text-primary leading-[0.8]">
+          <h2 className="font-clash text-3xl md:text-6xl lg:text-8xl font-bold text-center uppercase text-primary leading-[0.8]">
             Let&apos;s do <br /> something <br /> awesome <br />
             together!
           </h2>
@@ -454,13 +472,13 @@ export default function Home() {
           }}
           className="z-[100] fixed top-0 left-0 bg-base-2 w-full h-svh grid place-items-center"
         >
-          <figure className="w-3/4 relative grid place-items-center">
+          <figure className="w-3/4 relative grid place-items-center h-3/4 md:h-auto">
             <video
               ref={videoRef}
               id="video"
               controls
               playsInline
-              className="w-full h-auto rounded-lg object-contain cursor-pointer"
+              className="w-full h-full md:h-auto rounded-lg object-cover md:object-contain cursor-pointer"
             >
               <source src="/videos/korzh.mp4" />
             </video>

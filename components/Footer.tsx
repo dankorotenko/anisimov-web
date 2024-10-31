@@ -18,10 +18,18 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="/work"
+                  href="/videos"
                   className="flex text-lg lowercase font-clash font-bold text-text leading-none"
                 >
-                  work
+                  videos
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/photos"
+                  className="flex text-lg lowercase font-clash font-bold text-text leading-none"
+                >
+                  photos
                 </a>
               </li>
             </menu>
