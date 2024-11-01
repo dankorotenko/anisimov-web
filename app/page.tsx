@@ -156,7 +156,7 @@ export default function Home() {
   }, []);
   return (
     <ScrollContext>
-      <main className="relative w-full h-full overflow-hidden">
+      <main className="relative w-full h-auto overflow-hidden">
         <section
           id="hero"
           className="z-[2] relative w-full mb-[100svh] bg-base"

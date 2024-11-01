@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import CurrentTime from "./CurrentTime";
 import { motion } from "framer-motion";
+import FlipLink from "./FlipLink";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -83,24 +84,57 @@ const Header = () => {
       </header>
 
       <motion.div
-        initial={{ opacity: "0" }}
+        initial={{ opacity: "0", visibility: "hidden" }}
         animate={isMenuOpen ? "opened" : "closed"}
         variants={{
-          opened: { opacity: 1, transition: { duration: 0.5 } },
-          closed: { opacity: 0, transition: { duration: 0.5 } },
+          opened: {
+            opacity: 1,
+            visibility: "visible",
+            transition: { duration: 0.5 },
+          },
+          closed: {
+            opacity: 0,
+            visibility: "hidden",
+            transition: { duration: 0.5 },
+          },
         }}
-        className="fixed top-0 left-0 w-full h-full z-[3]"
+        className="fixed top-0 left-0 w-full h-full z-[3] overflow-y-auto"
+        data-lenis-prevent
       >
         <motion.div
-          initial={{ opacity: "0" }}
+          initial={{ opacity: "0", visibility: "hidden" }}
           animate={isMenuOpen ? "opened" : "closed"}
           variants={{
-            opened: { opacity: 1, transition: { duration: 0.5 } },
-            closed: { opacity: 0, transition: { duration: 0.5 } },
+            opened: {
+              opacity: 1,
+              visibility: "visible",
+              transition: { duration: 0.5 },
+            },
+            closed: {
+              opacity: 0,
+              visibility: "hidden",
+              transition: { duration: 0.5 },
+            },
           }}
           className="h-auto md:h-1/2 w-full md:p-4"
         >
-          <div className="absolute w-full h-svh bg-black left-0 top-0 opacity-60 z-[2]"></div>
+          <motion.div
+            initial={{ opacity: 0, visibility: "hidden" }}
+            animate={isMenuOpen ? "opened" : "closed"}
+            variants={{
+              opened: {
+                opacity: 0.6,
+                visibility: "visible",
+                transition: { duration: 0.5, delay: 0.2 },
+              },
+              closed: {
+                opacity: 0,
+                visibility: "hidden",
+                transition: { duration: 0.5 },
+              },
+            }}
+            className="absolute w-full h-svh bg-black left-0 top-0 opacity-60 z-[2]"
+          ></motion.div>
           <motion.div
             initial={{ y: "-100%" }}
             animate={isMenuOpen ? "opened" : "closed"}
@@ -108,49 +142,49 @@ const Header = () => {
               opened: { y: 0, transition: { duration: 0.5, delay: 0.2 } },
               closed: { y: "-100%", transition: { duration: 0.5 } },
             }}
-            className="relative bg-base-2 md:rounded-md min-h-dvh z-[3] flex flex-col pt-16 justify-end"
+            className="relative bg-base-2 md:rounded-md min-h-dvh md:min-h-0 z-[3] flex flex-col pt-16 justify-end md:justify-normal"
           >
-            <div className="w-full max-w-[calc(100%-32px)] mx-auto grid grid-cols-4 gap-x-4 pb-12">
-              <nav className="col-[1/5] mt-12">
+            <div className="w-full max-w-[calc(100%-32px)] mx-auto grid grid-cols-4 md:grid-cols-12 gap-x-4 pb-12">
+              <nav className="col-[1/5] mt-12 md:col-[8/13]">
                 <menu>
                   <li>
                     <div>
-                      <a
+                      <FlipLink
                         href="/"
-                        className="font-clash font-bold text-7xl text-primary uppercase leading-[0.8]"
+                        className="font-clash font-bold text-7xl md:text-5xl lg:text-8xl text-primary uppercase leading-[0.8]"
                       >
                         Home
-                      </a>
+                      </FlipLink>
                     </div>
                   </li>
                   <li>
                     <div>
-                      <a
+                      <FlipLink
                         href="/team"
-                        className="font-clash font-bold text-7xl text-primary uppercase leading-[0.8]"
+                        className="font-clash font-bold text-7xl md:text-5xl lg:text-8xl text-primary uppercase leading-[0.8]"
                       >
                         Team
-                      </a>
+                      </FlipLink>
                     </div>
                   </li>
                   <li>
                     <div>
-                      <a
+                      <FlipLink
                         href="/videos"
-                        className="font-clash font-bold text-7xl text-primary uppercase leading-[0.8]"
+                        className="font-clash font-bold text-7xl md:text-5xl lg:text-8xl text-primary uppercase leading-[0.8]"
                       >
                         Videos
-                      </a>
+                      </FlipLink>
                     </div>
                   </li>
                   <li>
                     <div>
-                      <a
+                      <FlipLink
                         href="/photos"
-                        className="font-clash font-bold text-7xl text-primary uppercase leading-[0.8]"
+                        className="font-clash font-bold text-7xl md:text-5xl lg:text-8xl text-primary uppercase leading-[0.8]"
                       >
                         Photos
-                      </a>
+                      </FlipLink>
                     </div>
                   </li>
                 </menu>
@@ -168,15 +202,30 @@ const Header = () => {
               </figure>
             </div>
             <div>
-              <ul>
-                <li className="border-t-2 border-t-zinc-700">
-                  <a href="/" className="font-clash lowercase text-2xl font-semibold block p-8">instagram</a>
+              <ul className="md:flex md:justify-center md:items-stretch">
+                <li className="border-t-2 border-t-zinc-700 md:flex-1 md:text-center">
+                  <a
+                    href="/"
+                    className="font-clash lowercase text-2xl font-semibold block p-8 md:p-4 hover:text-primary transition-colors duration-300"
+                  >
+                    instagram
+                  </a>
                 </li>
-                <li className="border-t-2 border-t-zinc-700">
-                  <a href="/" className="font-clash lowercase text-2xl font-semibold block p-8">linkedin</a>
+                <li className="border-t-2 border-t-zinc-700 md:flex-1 md:border-l-2 md:border-l-zinc-700 md:text-center">
+                  <a
+                    href="/"
+                    className="font-clash lowercase text-2xl font-semibold block p-8 md:p-4 hover:text-primary transition-colors duration-300"
+                  >
+                    linkedin
+                  </a>
                 </li>
-                <li className="border-t-2 border-t-zinc-700">
-                  <a href="/" className="font-clash lowercase text-2xl font-semibold block p-8">mail</a>
+                <li className="border-t-2 border-t-zinc-700 md:flex-1 md:border-l-2 md:border-l-zinc-700 md:text-center">
+                  <a
+                    href="/"
+                    className="font-clash lowercase text-2xl font-semibold block p-8 md:p-4 hover:text-primary transition-colors duration-300"
+                  >
+                    mail
+                  </a>
                 </li>
               </ul>
             </div>
