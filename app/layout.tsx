@@ -42,6 +42,11 @@ const clashDisplay = localFont({
 export const metadata: Metadata = {
   title: "Anisimov Media",
   description: "Anisimov Media Website",
+  icons: {
+    icon: "/logo.svg", 
+    shortcut: "/logo.svg", 
+    apple: "/logo.svg",
+  },
 };
 
 export default function RootLayout({

@@ -517,7 +517,7 @@ export default function Home() {
               playsInline
               className="w-full h-full md:h-auto rounded-lg object-cover md:object-contain cursor-pointer"
             >
-              <source src="/videos/korzh.mp4" />
+              <source src="/videos/reel.mp4" />
             </video>
             <button
               className="font-clash font-bold size-10 rounded-lg bg-base p-2 absolute right-2 top-2"
