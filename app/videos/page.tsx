@@ -1,67 +1,73 @@
 "use client";
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
 import ScrollContext from "@/components/ScrollContext";
 
 function InfiniteLoopPage() {
-  const cardsRef = useRef(null);
-  const scrollPosRef = useRef(0);
-  const totalWidthRef = useRef(0);
+  const containerRef = useRef<HTMLDivElement | null>(null); // Type for container div
+  const ulRefs = useRef<HTMLUListElement[]>([]); // Type for array of ul elements
 
   useEffect(() => {
-    const items = gsap.utils.toArray(".cards li") as HTMLLIElement[];
-    const itemWidth = items[0].offsetWidth;
-    const totalItems = items.length;
-    const totalWidth = totalItems * itemWidth;
+    const container = containerRef.current;
+    const [ul1, ul2] = ulRefs.current;
 
-    // Set the total width for the carousel
-    totalWidthRef.current = totalWidth;
+    if (!container || !ul1 || !ul2) return; // Type safety check
 
-    // Scroll handler to control the carousel position
-    const handleScroll = (event) => {
-      const delta = event.deltaY || event.deltaX;
-      scrollPosRef.current += delta;
-
-      gsap.set(cardsRef.current, {
-        x: `-=${delta}`,
-        modifiers: {
-          x: (x) => {
-            const numericX = parseFloat(x);
-            // Reset position to create seamless loop
-            if (numericX <= -totalWidth) {
-              scrollPosRef.current = 0; // Reset scroll position
-              return `${scrollPosRef.current}px`;
-            } else if (numericX > 0) {
-              scrollPosRef.current = -totalWidth + delta; // Adjust position to keep in bounds
-              return `${scrollPosRef.current}px`;
-            }
-            return `${numericX}px`;
-          },
-        },
-      });
+    const adjustPosition = () => {
+      if (container.scrollLeft >= ul2.offsetLeft) {
+        // If the second ul reaches the start of the viewport, swap them
+        container.scrollLeft -= ul2.offsetLeft;
+      } else if (container.scrollLeft <= 0) {
+        // Reverse scroll to the second ul if user scrolls backwards
+        container.scrollLeft += ul2.offsetLeft;
+      }
     };
 
-    // Attach scroll event listeners
-    window.addEventListener("wheel", handleScroll);
-    window.addEventListener("pointermove", handleScroll);
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      container.scrollLeft += e.deltaY; // Speed up the scroll
+      adjustPosition();
+    };
 
-    // Clean up on component unmount
+    container.addEventListener("wheel", handleWheel, { passive: false });
+
     return () => {
-      window.removeEventListener("wheel", handleScroll);
-      window.removeEventListener("pointermove", handleScroll);
+      container.removeEventListener("wheel", handleWheel);
     };
   }, []);
 
   return (
     <ScrollContext>
       <main className="pt-16 grid place-items-center h-dvh">
-        <div className="gallery absolute top-1/2 -translate-y-1/2 w-full overflow-hidden">
-          <ul ref={cardsRef} className="cards flex">
-            <li className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold">1</li>
-            <li className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold">2</li>
-            <li className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold">3</li>
-            <li className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold">4</li>
-            <li className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold">5</li>
+        <div className="w-full overflow-hidden grid grid-flow-col" ref={containerRef}>
+          <ul
+            ref={(el) => {
+              if (el) ulRefs.current[0] = el;
+            }}
+            className="grid grid-flow-col gap-4 pl-4"
+          >
+            {Array.from({ length: 5 }, (_, i) => (
+              <li
+                key={i}
+                className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+              >
+                {i + 1}
+              </li>
+            ))}
+          </ul>
+          <ul
+            ref={(el) => {
+              if (el) ulRefs.current[1] = el;
+            }}
+            className="grid grid-flow-col gap-4 pl-4"
+          >
+            {Array.from({ length: 5 }, (_, i) => (
+              <li
+                key={i + 5}
+                className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+              >
+                {i + 1}
+              </li>
+            ))}
           </ul>
         </div>
       </main>
