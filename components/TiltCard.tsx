@@ -70,6 +70,7 @@ const TiltCard = ({ img, text, href }) => {
             <span className="font-clash text-lg font-bold text-text">
               {text}
             </span>
+            <p className="font-clash pt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, ea!</p>
           </figcaption>
         </figure>
       </a>

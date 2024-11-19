@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import camera from "@/images/camera.png";
+import anisimov from "@/images/anisimov.webp";
 import phone from "@/images/phone.png";
 import ScrollContext from "@/components/ScrollContext";
 import MagneticButton from "@/components/MagneticButton";
@@ -166,25 +166,27 @@ export default function Home() {
 
             <div className="grid w-full pt-12 md:pt-20 col-[1/5] md:col-[1/13] md:row-[1] md:relative gap-y-12 grid-cols-4 md:grid-cols-12 gap-x-2 content-center">
               <h1 className="font-clash col-start-2 col-end-4 uppercase font-bold font-base text-center md:text-xl text-white md:col-start-6 md:col-end-8 md:row-[1] self-center">
-                Motion Design
+                Media
                 <br />
-                Studio
+                Production
               </h1>
               <ul className="col-[2/4] md:col-[1/13] md:row-[1] md:flex md:justify-between md:items-center">
                 <li className="text-center">
                   <a
-                    href="#"
+                    href="https://www.instagram.com/anisimov_media"
+                    target="_blank"
                     className="font-clash font-semibold text-white text-lg md:text-xl leading-tight"
                   >
-                    @ranlus.studio
+                    @anisimov_media
                   </a>
                 </li>
                 <li className="text-center">
                   <a
-                    href="#"
+                    href="https://t.me/tanisimov"
+                    target="_blank"
                     className="font-clash font-semibold text-white text-lg md:text-xl leading-tight"
                   >
-                    @_ranlus
+                    @tanisimov
                   </a>
                 </li>
               </ul>
@@ -213,34 +215,36 @@ export default function Home() {
             <div className="col-[2/4] self-center h-fit mt-16 md:col-[3/6] md:mt-0">
               <Card id="camera-card">
                 <Image
-                  src={camera}
-                  alt="camera"
+                  src={anisimov}
+                  alt="anisimov"
                   className="size-full rounded-md"
                 />
                 <figcaption className="mt-2">
                   <a
-                    href="/"
+                    href="https://www.instagram.com/anisimov_media"
+                    target="_blank"
                     className="font-clash text-lg font-bold text-text"
                   >
-                    @anisimov.photo
+                    @anisimov_media
                   </a>
                 </figcaption>
               </Card>
             </div>
             <div className="col-[2/5] pt-14 pb-16 md:col-[8/11] md:py-32">
               <p className="font-clash text-white font-semibold text-xl leading-tight md:text-2xl">
-                What do we do at Ranlus Studio?{" "}
+                For what is Anisimov Media stand for?{" "}
                 <b className="font-clash text-white font-normal text-lg leading-tight">
                   *clears throat*
                 </b>{" "}
-                <br /> Allow us to enlighten you.
+                <br /> Allow us to spotlight you.
               </p>
               <p className="font-clash mt-6 text-xl leading-tight font-normal text-white">
-                We conceptualize and animate engaging visuals that bring your
-                message to life and captivate your target audience.
+                We translate your philosophy into digital content. From point A,
+                wherever it is to point B, where your target audience is
+                hypnotized.
               </p>
               <p className="font-clash mt-6 text-xl leading-tight font-normal text-white">
-                We materialize your ideas with creativity and precision.
+                Dynamic and passionate, yours
               </p>
               <MagneticButton
                 className="font-clash mt-6 border-2 border-primary rounded-[50%] text-white px-8 py-4 font-semibold text-lg"
@@ -249,7 +253,7 @@ export default function Home() {
                 speed={0.5}
                 borderRadius="50%"
               >
-                the studio
+                <a href="/team">the team</a>
               </MagneticButton>
             </div>
             <div className="col-[1/5] md:col-[1/13] grid">
@@ -285,7 +289,7 @@ export default function Home() {
             className="object-cover w-full h-svh rounded-lg scale-[0.43] md:object-contain cursor-pointer"
             onClick={openModalAndPlayVideo}
           >
-            <source src="/videos/korzh.mp4" />
+            <source src="/videos/reel.mp4" />
           </video>
         </section>
         <section className="w-full pt-60 pb-10">
@@ -293,10 +297,42 @@ export default function Home() {
             Video <br /> Showcase
           </h2>
           <div className="px-4 mx-auto mt-10 flex flex-col gap-4 md:grid md:grid-cols-12 md:gap-x-8 md:gap-y-32">
-            <div className="bg-blue-500 aspect-[4/3] rounded-md md:col-[1/7] md:row-[1] md:aspect-video md:translate-y-1/4 md:-translate-x-[55%]"></div>
-            <div className="bg-green-500 aspect-[4/3] rounded-md md:col-[4/10] md:row-[1] md:aspect-video"></div>
-            <div className="bg-purple-500 aspect-[4/3] rounded-md md:col-[7/13] md:row-[1] md:aspect-video md:-translate-y-3/4 md:translate-x-[60%]"></div>
-            <div className="bg-yellow-500 aspect-[4/3] rounded-md md:col-[7/13] md:row-[2] md:aspect-video md:-translate-y-3/4 md:translate-x-[60%]"></div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="aspect-[4/3] rounded-md md:col-[1/7] md:row-[1] md:aspect-video md:translate-y-1/4 md:-translate-x-[55%]"
+            >
+              <source src="/videos/video1.mov" />
+            </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="aspect-[4/3] rounded-md md:col-[4/10] md:row-[1] md:aspect-video"
+            >
+              <source src="/videos/video2.mov" />
+            </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="bg-purple-500 aspect-[4/3] rounded-md md:col-[7/13] md:row-[1] md:aspect-video md:-translate-y-3/4 md:translate-x-[60%]"
+            >
+              <source src="/videos/video3.mov" />
+            </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="bg-yellow-500 aspect-[4/3] rounded-md md:col-[7/13] md:row-[2] md:aspect-video md:-translate-y-3/4 md:translate-x-[60%]"
+            >
+              <source src="/videos/video4.mov" />
+            </video>
           </div>
           <div className="w-full grid place-items-center mt-10 md:-mt-80">
             <MagneticButton
@@ -306,7 +342,7 @@ export default function Home() {
               speed={0.5}
               borderRadius="50%"
             >
-              <a href="/gallery">all videos</a>
+              <a href="/videos">all videos</a>
             </MagneticButton>
           </div>
         </section>
@@ -412,7 +448,7 @@ export default function Home() {
                 speed={0.5}
                 borderRadius="50%"
               >
-                <a href="/gallery">all photos</a>
+                <a href="/photos">all photos</a>
               </MagneticButton>
             </div>
           </div>
@@ -433,10 +469,11 @@ export default function Home() {
                 />
                 <figcaption className="mt-2">
                   <a
-                    href="/"
+                    href="https://www.instagram.com/anisimov_media"
+                    target="_blank"
                     className="font-clash text-lg font-bold text-text"
                   >
-                    @anisimov.photo
+                    @anisimov_media
                   </a>
                 </figcaption>
               </Card>
@@ -456,7 +493,7 @@ export default function Home() {
                 speed={0.5}
                 borderRadius="50%"
               >
-                contact me
+                <a href="mailto:anisimovmedia@gmail.com">contact me</a>
               </MagneticButton>
             </div>
           </div>

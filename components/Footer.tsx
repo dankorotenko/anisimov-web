@@ -41,31 +41,25 @@ const Footer = () => {
             <ul className="mt-2">
               <li>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/anisimov_media"
+                  target="_blank"
                   className="flex text-lg lowercase font-clash font-bold text-text leading-none"
                 >
-                  @_ranlus
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="flex text-lg lowercase font-clash font-bold text-text leading-none"
-                >
-                  @ranlus.studio
+                  @anisimov_media
                 </a>
               </li>
             </ul>
           </div>
           <div className="col-[3/5] md:col-[11/13] md:row-[2]">
-            <h4 className="text-xs uppercase font-clash font-bold">Linkedin</h4>
+            <h4 className="text-xs uppercase font-clash font-bold">Telegram</h4>
             <ul className="mt-2">
               <li>
                 <a
-                  href="#"
+                  href="https://t.me/tanisimov"
+                  target="_blank"
                   className="flex text-lg lowercase font-clash font-bold text-text leading-none"
                 >
-                  @ranlus
+                  @tanisimov
                 </a>
               </li>
             </ul>
@@ -75,10 +69,10 @@ const Footer = () => {
             <ul className="mt-2">
               <li>
                 <a
-                  href="#"
+                  href="mailto:anisimovmedia@gmail.com"
                   className="flex text-lg lowercase font-clash font-bold text-text leading-none"
                 >
-                  ranlus.studio@gmail.com
+                  anisimovmedia@gmail.com
                 </a>
               </li>
             </ul>

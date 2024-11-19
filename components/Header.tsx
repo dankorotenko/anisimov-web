@@ -197,7 +197,7 @@ const Header = () => {
                   playsInline
                   className="object-cover rounded-md w-full h-full"
                 >
-                  <source src="/videos/korzh.mp4" />
+                  <source src="/videos/reel.mp4" />
                 </video>
               </figure>
             </div>
@@ -205,7 +205,8 @@ const Header = () => {
               <ul className="md:flex md:justify-center md:items-stretch">
                 <li className="border-t-2 border-t-zinc-700 md:flex-1 md:text-center">
                   <a
-                    href="/"
+                    href="https://www.instagram.com/anisimov_media"
+                    target="_blank"
                     className="font-clash lowercase text-2xl font-semibold block p-8 md:p-4 hover:text-primary transition-colors duration-300"
                   >
                     instagram
@@ -213,15 +214,16 @@ const Header = () => {
                 </li>
                 <li className="border-t-2 border-t-zinc-700 md:flex-1 md:border-l-2 md:border-l-zinc-700 md:text-center">
                   <a
-                    href="/"
+                    href="https://t.me/tanisimov"
+                    target="_blank"
                     className="font-clash lowercase text-2xl font-semibold block p-8 md:p-4 hover:text-primary transition-colors duration-300"
                   >
-                    linkedin
+                    telegram
                   </a>
                 </li>
                 <li className="border-t-2 border-t-zinc-700 md:flex-1 md:border-l-2 md:border-l-zinc-700 md:text-center">
                   <a
-                    href="/"
+                    href="mailto:anisimovmedia@gmail.com"
                     className="font-clash lowercase text-2xl font-semibold block p-8 md:p-4 hover:text-primary transition-colors duration-300"
                   >
                     mail

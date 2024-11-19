@@ -11,7 +11,7 @@ const page = () => {
           Our Team
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-4 md:mt-16 gap-8 pb-20 w-full mx-auto px-4 md:w-[calc(100%-16px)]">
-          <TiltCard img={camera} text="@anisimov.photo" href="/" />
+          <TiltCard img={camera} text="Anton Milev" href="/" />
           <TiltCard img={phone} text="@anisimov.photo" href="/" />
           <TiltCard img={camera} text="@anisimov.photo" href="/" />
           <TiltCard img={phone} text="@anisimov.photo" href="/" />

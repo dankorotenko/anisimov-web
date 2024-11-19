@@ -3,72 +3,156 @@ import { useEffect, useRef } from "react";
 import ScrollContext from "@/components/ScrollContext";
 
 function InfiniteLoopPage() {
-  const containerRef = useRef<HTMLDivElement | null>(null); // Type for container div
-  const ulRefs = useRef<HTMLUListElement[]>([]); // Type for array of ul elements
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const ulRefs = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
     const container = containerRef.current;
     const [ul1, ul2] = ulRefs.current;
 
-    if (!container || !ul1 || !ul2) return; // Type safety check
+    if (!container || !ul1 || !ul2) return;
 
     const adjustPosition = () => {
       if (container.scrollLeft >= ul2.offsetLeft) {
-        // If the second ul reaches the start of the viewport, swap them
         container.scrollLeft -= ul2.offsetLeft;
       } else if (container.scrollLeft <= 0) {
-        // Reverse scroll to the second ul if user scrolls backwards
         container.scrollLeft += ul2.offsetLeft;
       }
     };
 
     const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      container.scrollLeft += e.deltaY; // Speed up the scroll
+      container.scrollLeft += e.deltaY; // Increase speed by 8x
       adjustPosition();
     };
 
-    container.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("wheel", handleWheel, { passive: true });
 
     return () => {
-      container.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("wheel", handleWheel);
     };
   }, []);
 
   return (
     <ScrollContext>
       <main className="pt-16 grid place-items-center h-dvh">
-        <div className="w-full overflow-hidden grid grid-flow-col" ref={containerRef}>
-          <ul
+        <div
+          className="w-full overflow-hidden grid grid-flow-col"
+          ref={containerRef}
+        >
+          <div
             ref={(el) => {
               if (el) ulRefs.current[0] = el;
             }}
             className="grid grid-flow-col gap-4 pl-4"
           >
-            {Array.from({ length: 5 }, (_, i) => (
-              <li
-                key={i}
-                className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
-              >
-                {i + 1}
-              </li>
-            ))}
-          </ul>
-          <ul
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              key={1}
+              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+            >
+              <source src="/videos/video1.mov" />
+            </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              key={2}
+              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+            >
+              <source src="/videos/video2.mov" />
+            </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              key={3}
+              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+            >
+              <source src="/videos/video3.mov" />
+            </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              key={4}
+              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+            >
+              <source src="/videos/video4.mov" />
+            </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              key={5}
+              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+            >
+              <source src="/videos/video5.mov" />
+            </video>
+          </div>
+          <div
             ref={(el) => {
               if (el) ulRefs.current[1] = el;
             }}
             className="grid grid-flow-col gap-4 pl-4"
           >
-            {Array.from({ length: 5 }, (_, i) => (
-              <li
-                key={i + 5}
-                className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
-              >
-                {i + 1}
-              </li>
-            ))}
-          </ul>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              key={6}
+              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+            >
+              <source src="/videos/video1.mov" />
+            </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              key={7}
+              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+            >
+              <source src="/videos/video2.mov" />
+            </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              key={8}
+              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+            >
+              <source src="/videos/video3.mov" />
+            </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              key={9}
+              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+            >
+              <source src="/videos/video4.mov" />
+            </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              key={10}
+              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+            >
+              <source src="/videos/video5.mov" />
+            </video>
+          </div>
         </div>
       </main>
     </ScrollContext>
