@@ -36,7 +36,7 @@ function InfiniteLoopPage() {
     <ScrollContext>
       <main className="pt-16 grid place-items-center h-dvh">
         <div
-          className="w-full overflow-hidden grid grid-flow-col"
+          className="hidden w-full overflow-hidden md:grid grid-flow-col"
           ref={containerRef}
         >
           <div
@@ -51,7 +51,7 @@ function InfiniteLoopPage() {
               muted
               playsInline
               key={1}
-              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+              className="rounded-lg ml-4 min-w-[646px] aspect-video font-clash text-8xl text-center font-bold"
             >
               <source src="/videos/video1.mov" />
             </video>
@@ -61,7 +61,7 @@ function InfiniteLoopPage() {
               muted
               playsInline
               key={2}
-              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+              className="rounded-lg ml-4 min-w-[646px] aspect-video font-clash text-8xl text-center font-bold"
             >
               <source src="/videos/video2.mov" />
             </video>
@@ -71,7 +71,7 @@ function InfiniteLoopPage() {
               muted
               playsInline
               key={3}
-              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+              className="rounded-lg ml-4 min-w-[646px] aspect-video font-clash text-8xl text-center font-bold"
             >
               <source src="/videos/video3.mov" />
             </video>
@@ -81,7 +81,7 @@ function InfiniteLoopPage() {
               muted
               playsInline
               key={4}
-              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+              className="rounded-lg ml-4 min-w-[646px] aspect-video font-clash text-8xl text-center font-bold"
             >
               <source src="/videos/video4.mov" />
             </video>
@@ -91,7 +91,7 @@ function InfiniteLoopPage() {
               muted
               playsInline
               key={5}
-              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+              className="rounded-lg ml-4 min-w-[646px] aspect-video font-clash text-8xl text-center font-bold"
             >
               <source src="/videos/video5.mov" />
             </video>
@@ -108,7 +108,7 @@ function InfiniteLoopPage() {
               muted
               playsInline
               key={6}
-              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+              className="rounded-lg ml-4 min-w-[646px] aspect-video font-clash text-8xl text-center font-bold"
             >
               <source src="/videos/video1.mov" />
             </video>
@@ -118,7 +118,7 @@ function InfiniteLoopPage() {
               muted
               playsInline
               key={7}
-              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+              className="rounded-lg ml-4 min-w-[646px] aspect-video font-clash text-8xl text-center font-bold"
             >
               <source src="/videos/video2.mov" />
             </video>
@@ -128,7 +128,7 @@ function InfiniteLoopPage() {
               muted
               playsInline
               key={8}
-              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+              className="rounded-lg ml-4 min-w-[646px] aspect-video font-clash text-8xl text-center font-bold"
             >
               <source src="/videos/video3.mov" />
             </video>
@@ -138,7 +138,7 @@ function InfiniteLoopPage() {
               muted
               playsInline
               key={9}
-              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+              className="rounded-lg ml-4 min-w-[646px] aspect-video font-clash text-8xl text-center font-bold"
             >
               <source src="/videos/video4.mov" />
             </video>
@@ -148,11 +148,63 @@ function InfiniteLoopPage() {
               muted
               playsInline
               key={10}
-              className="rounded-lg ml-4 min-w-[646px] aspect-video bg-red-500 font-clash text-8xl text-center font-bold"
+              className="rounded-lg ml-4 min-w-[646px] aspect-video font-clash text-8xl text-center font-bold"
             >
               <source src="/videos/video5.mov" />
             </video>
           </div>
+        </div>
+        <div className="grid md:hidden px-4 gap-y-4">
+        <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              key={1}
+              className="rounded-lg aspect-[4/3] object-cover font-clash"
+            >
+              <source src="/videos/video1.mov" />
+            </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              key={2}
+              className="rounded-lg aspect-[4/3] object-cover font-clash"
+            >
+              <source src="/videos/video2.mov" />
+            </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              key={3}
+              className="rounded-lg aspect-[4/3] object-cover font-clash"
+            >
+              <source src="/videos/video3.mov" />
+            </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              key={4}
+              className="rounded-lg aspect-[4/3] object-cover font-clash"
+            >
+              <source src="/videos/video4.mov" />
+            </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              key={5}
+              className="rounded-lg aspect-[4/3] object-cover font-clash"
+            >
+              <source src="/videos/video5.mov" />
+            </video>
         </div>
       </main>
     </ScrollContext>

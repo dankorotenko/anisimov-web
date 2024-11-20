@@ -20,13 +20,13 @@ const Header = () => {
             anisimov
           </Link>
           <button
-            className="cursor-pointer col-start-3 col-end-5 md:col-start-5 md:col-end-9 text-right md:text-center"
+            className="text-text cursor-pointer col-start-3 col-end-5 md:col-start-5 md:col-end-9 text-right md:text-center"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <motion.span
               initial="closed"
               animate={isMenuOpen ? "opened" : "closed"}
-              className="font-clash font-bold text-lg relative block overflow-hidden whitespace-nowrap"
+              className="text-text font-clash font-bold text-lg relative block overflow-hidden whitespace-nowrap"
               style={{
                 lineHeight: 0.75,
               }}
@@ -207,7 +207,7 @@ const Header = () => {
                   <a
                     href="https://www.instagram.com/anisimov_media"
                     target="_blank"
-                    className="font-clash lowercase text-2xl font-semibold block p-8 md:p-4 hover:text-primary transition-colors duration-300"
+                    className="text-text font-clash lowercase text-2xl font-semibold block p-8 md:p-4 hover:text-primary transition-colors duration-300"
                   >
                     instagram
                   </a>
@@ -216,7 +216,7 @@ const Header = () => {
                   <a
                     href="https://t.me/tanisimov"
                     target="_blank"
-                    className="font-clash lowercase text-2xl font-semibold block p-8 md:p-4 hover:text-primary transition-colors duration-300"
+                    className="text-text font-clash lowercase text-2xl font-semibold block p-8 md:p-4 hover:text-primary transition-colors duration-300"
                   >
                     telegram
                   </a>
@@ -224,7 +224,7 @@ const Header = () => {
                 <li className="border-t-2 border-t-zinc-700 md:flex-1 md:border-l-2 md:border-l-zinc-700 md:text-center">
                   <a
                     href="mailto:anisimovmedia@gmail.com"
-                    className="font-clash lowercase text-2xl font-semibold block p-8 md:p-4 hover:text-primary transition-colors duration-300"
+                    className="text-text font-clash lowercase text-2xl font-semibold block p-8 md:p-4 hover:text-primary transition-colors duration-300"
                   >
                     mail
                   </a>

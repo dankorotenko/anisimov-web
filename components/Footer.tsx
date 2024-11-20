@@ -6,20 +6,28 @@ const Footer = () => {
       <div className="realtive grid grid-cols-4 md:grid-cols-12 gap-y-12 md:gap-y-40 gap-x-2 md:gap-x-4 items-center w-full mx-auto px-4 md:px-4">
         <div className="grid w-full pt-12 md:pt-20 col-[1/5] md:col-[1/13] md:row-[1] md:relative gap-y-12 grid-cols-4 md:grid-cols-12 gap-x-2 content-center">
           <nav className="col-[1/5] md:col-[8/10]">
-            <h4 className="text-xs uppercase font-clash font-bold">Sitemap</h4>
+            <h4 className="text-text text-xs uppercase font-clash font-bold">Sitemap</h4>
             <menu className="mt-2">
               <li>
                 <a
                   href="/"
-                  className="flex text-lg lowercase font-clash font-bold text-text leading-none"
+                  className="flex md:text-lg lowercase font-clash font-bold text-text leading-none md:leading-none"
                 >
                   home
                 </a>
               </li>
               <li>
                 <a
+                  href="/team"
+                  className="flex md:text-lg lowercase font-clash font-bold text-text leading-none md:leading-none"
+                >
+                  team
+                </a>
+              </li>
+              <li>
+                <a
                   href="/videos"
-                  className="flex text-lg lowercase font-clash font-bold text-text leading-none"
+                  className="flex md:text-lg lowercase font-clash font-bold text-text leading-none md:leading-none"
                 >
                   videos
                 </a>
@@ -27,7 +35,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/photos"
-                  className="flex text-lg lowercase font-clash font-bold text-text leading-none"
+                  className="flex md:text-lg lowercase font-clash font-bold text-text leading-none md:leading-none"
                 >
                   photos
                 </a>
@@ -35,7 +43,7 @@ const Footer = () => {
             </menu>
           </nav>
           <div className="col-[1/3] md:col-[8/10] md:row-[2]">
-            <h4 className="text-xs uppercase font-clash font-bold">
+            <h4 className="text-text text-xs uppercase font-clash font-bold">
               Instagram
             </h4>
             <ul className="mt-2">
@@ -43,7 +51,7 @@ const Footer = () => {
                 <a
                   href="https://www.instagram.com/anisimov_media"
                   target="_blank"
-                  className="flex text-lg lowercase font-clash font-bold text-text leading-none"
+                  className="flex md:text-lg lowercase font-clash font-bold text-text leading-none"
                 >
                   @anisimov_media
                 </a>
@@ -51,13 +59,13 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-[3/5] md:col-[11/13] md:row-[2]">
-            <h4 className="text-xs uppercase font-clash font-bold">Telegram</h4>
+            <h4 className="text-text text-xs uppercase font-clash font-bold">Telegram</h4>
             <ul className="mt-2">
               <li>
                 <a
                   href="https://t.me/tanisimov"
                   target="_blank"
-                  className="flex text-lg lowercase font-clash font-bold text-text leading-none"
+                  className="flex md:text-lg lowercase font-clash font-bold text-text leading-none"
                 >
                   @tanisimov
                 </a>
@@ -65,12 +73,12 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-[1/3] md:col-[8/10] md:row-[3]">
-            <h4 className="text-xs uppercase font-clash font-bold">Mail</h4>
+            <h4 className="text-text text-xs uppercase font-clash font-bold">Mail</h4>
             <ul className="mt-2">
               <li>
                 <a
                   href="mailto:anisimovmedia@gmail.com"
-                  className="flex text-lg lowercase font-clash font-bold text-text leading-none"
+                  className="flex md:text-lg lowercase font-clash font-bold text-text leading-none"
                 >
                   anisimovmedia@gmail.com
                 </a>
@@ -78,7 +86,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-[1/5] md:col-[8/10] md:row-[4] lg:col-[11/13] lg:row-[3]">
-            <h4 className="text-xs uppercase font-clash font-bold">
+            <h4 className="text-text text-xs uppercase font-clash font-bold">
               Local Time
             </h4>
             <CurrentTime className="mt-2 uppercase text-[16px] font-clash font-bold text-text leading-none" />
