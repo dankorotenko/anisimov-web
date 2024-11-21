@@ -6,7 +6,6 @@ import { gsap } from "gsap";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import anisimov from "@/images/anisimov.webp";
-import phone from "@/images/phone.png";
 import ScrollContext from "@/components/ScrollContext";
 import MagneticButton from "@/components/MagneticButton";
 import Footer from "@/components/Footer";
