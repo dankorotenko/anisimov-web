@@ -503,7 +503,8 @@ export default function Home() {
           <div className="font-semibold flex items-center gap-2">
             Webiste made by{" "}
             <a
-              href="/"
+              href="https://www.synestia.agency/"
+              target="_blank"
               className="inline-flex items-center gap-1 transition-colors duration-300 hover:text-[#4040f0]"
             >
               <svg
