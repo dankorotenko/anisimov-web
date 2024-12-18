@@ -222,7 +222,7 @@ export default function Home() {
                   <a
                     href="https://www.instagram.com/anisimov_media"
                     target="_blank"
-                    className="font-clash text-lg font-bold text-text"
+                    className="font-clash lg:text-lg font-bold text-text"
                   >
                     @anisimov_media
                   </a>
@@ -470,7 +470,7 @@ export default function Home() {
                   <a
                     href="https://www.instagram.com/anisimov_media"
                     target="_blank"
-                    className="font-clash text-lg font-bold text-text"
+                    className="font-clash lg:text-lg font-bold text-text"
                   >
                     @anisimov_media
                   </a>
