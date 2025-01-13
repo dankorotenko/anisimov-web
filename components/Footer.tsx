@@ -16,14 +16,14 @@ const Footer = () => {
                   home
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="/team"
                   className="flex md:text-lg lowercase font-clash font-bold text-text leading-none md:leading-none"
                 >
                   team
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="/videos"

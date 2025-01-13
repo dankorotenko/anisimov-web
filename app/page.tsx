@@ -252,7 +252,7 @@ export default function Home() {
                 speed={0.5}
                 borderRadius="50%"
               >
-                <a href="/team">the team</a>
+                <a href="/videos">portfolio</a>
               </MagneticButton>
             </div>
             <div className="col-[1/5] md:col-[1/13] grid">

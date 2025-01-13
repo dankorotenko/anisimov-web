@@ -157,7 +157,7 @@ const Header = () => {
                       </FlipLink>
                     </div>
                   </li>
-                  <li>
+                  {/* <li>
                     <div>
                       <FlipLink
                         href="/team"
@@ -166,7 +166,7 @@ const Header = () => {
                         Team
                       </FlipLink>
                     </div>
-                  </li>
+                  </li> */}
                   <li>
                     <div>
                       <FlipLink
